@@ -1,4 +1,5 @@
-﻿namespace FlashSale.Api.DTOs;
+﻿using System.ComponentModel.DataAnnotations;
+namespace FlashSale.Api.DTOs;
 
 public class CreateOrderDto
 {
@@ -15,5 +16,8 @@ public class CreateOrderDto
     /// <summary>
     /// Satın alınmak istenen ürün adedi (Varsayılan: 1)
     /// </summary>
-    public int Quantity { get; set; } = 1;
+    /// 
+    [Range(1, 5)]
+    public int Quantity { get; set; }
+   
 }
