@@ -17,7 +17,8 @@ Bu sorgu sayesinde SQL Server satır kilitleme (Row Locking) mekanizmasını ça
 * **Veritabanı & ORM:** SQL Server 2022, Dapper (Yüksek hızlı mikro-ORM)
 * **Mimari Yapı:** Service-Repository Pattern, DTO, Dependency Injection
 * **Dökümantasyon:** Swagger UI (Türkçe & XML Yorum Destekli)
-
+---
+## 🚀 Proje Yapısı
 ---
 FlashSale.Api/
 ├── Controllers/
@@ -32,9 +33,6 @@ FlashSale.Api/
 │   └── OrderService.cs            --> Atomic Update & İş Mantığı Katmanı
 └── Program.cs                     --> DI & Swagger Konfigürasyonu
 
----
-
-## 🚀 Proje Yapısı
 ---
 ## 🎯 Çözülen Teknik Problem
 
