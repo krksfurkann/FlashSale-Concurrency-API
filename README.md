@@ -8,7 +8,34 @@
 Yüksek trafikte anlık indirim (Flash Sale) ve sınırlı stok durumlarında **stok çakışmalarını (Race Condition)** önlemek, **veri tutarlılığını (Data Consistency)** garanti altına almak için tasarlanmış yüksek performanslı backend REST API altyapısı.
 
 ---
+Bu sorgu sayesinde SQL Server satır kilitleme (Row Locking) mekanizmasını çalıştırır ve milisaniyeler içinde gelen isteklerden sadece stoğu karşılayanları işleme alır.
+---
 
+## 🏗️ Kullanılan Teknolojiler
+
+* **Framework:** .NET 8.0 ASP.NET Core Web API
+* **Veritabanı & ORM:** SQL Server 2022, Dapper (Yüksek hızlı mikro-ORM)
+* **Mimari Yapı:** Service-Repository Pattern, DTO, Dependency Injection
+* **Dökümantasyon:** Swagger UI (Türkçe & XML Yorum Destekli)
+
+---
+FlashSale.Api/
+├── Controllers/
+│   └── FlashSaleController.cs    --> API Uç Noktaları
+├── DTOs/
+│   └── CreateOrderDto.cs          --> İstek Veri Modelleri
+├── Models/
+│   ├── Product.cs                 --> Ürün Varlığı
+│   ├── FlashCampaign.cs           --> Kampanya Varlığı
+│   └── Order.cs                   --> Sipariş Varlığı
+├── Services/
+│   └── OrderService.cs            --> Atomic Update & İş Mantığı Katmanı
+└── Program.cs                     --> DI & Swagger Konfigürasyonu
+
+---
+
+## 🚀 Proje Yapısı
+---
 ## 🎯 Çözülen Teknik Problem
 
 Klasik e-ticaret uygulamalarında aynı anda yüzlerce kullanıcının son kalan stoğu almaya çalışması durumunda (Eşzamanlılık / Concurrency) şu sorunlar yaşanır:
