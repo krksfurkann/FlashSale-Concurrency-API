@@ -49,3 +49,10 @@ SET RemainingStock = RemainingStock - @Quantity
 WHERE Id = @CampaignId 
   AND RemainingStock >= @Quantity 
   AND IsActive = 1
+```
+## 🔄 Güncellemeler
+
+### 27 Ekim 2026
+- **Güvenlik:** Sipariş adedi doğrulaması eklendi. Sıfır veya negatif adet artık reddediliyor (önceden negatif adet stoğu artırabiliyordu). Adet 1 ile 5 arasında sınırlandı.
+- **İş kuralı:** Siparişler artık yalnızca kampanya süresi içinde (StartTime ile EndTime arasında) oluşturulabiliyor.
+- **Güvenlik:** Beklenmeyen hatalarda veritabanı hata ayrıntısı kullanıcıya gösterilmiyor, genel bir mesaj dönülüyor.
